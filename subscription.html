@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaX - خطط الاشتراك</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><a href="index.html">
+                        <h1>Media<span class="logo-highlight">X</span></h1>
+                    </a></div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                        <li><a href="movies.html" class="nav-link">أفلام</a></li>
+                        <li><a href="series.html" class="nav-link">مسلسلات</a></li>
+                        <li><a href="games.html" class="nav-link">ألعاب</a></li>
+                        <li><a href="books.html" class="nav-link">كتب</a></li>
+                        <li><a href="categories.html" class="nav-link">التصنيفات</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="user-menu">
+                        <button class="user-avatar"><img src="assets/images/avatar-placeholder.jpg"
+                                alt="المستخدم"></button>
+                        <div class="dropdown-menu">
+                            <a href="profile.html">الملف الشخصي</a>
+                            <a href="watchlist.html">قائمة المشاهدة</a>
+                            <a href="favorites.html">المفضلة</a>
+                            <a href="settings.html">الإعدادات</a>
+                            <a href="subscription.html">الاشتراك</a>
+                            <hr><a href="login.html">تسجيل الخروج</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">خطط الاشتراك</h1>
+            <p class="page-description">اختر الخطة المناسبة لك واستمتع بمحتوى غير محدود</p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div
+                style="background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%); padding: 2rem; border-radius: var(--radius-lg); text-align: center; margin-bottom: 3rem;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">اشتراكك الحالي</h3>
+                <p style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem;">الخطة الأساسية</p>
+                <p style="color: rgba(255,255,255,0.8);">ينتهي في: 15 يناير 2025</p>
+                <button class="btn btn-secondary" style="margin-top: 1rem;">إدارة الاشتراك</button>
+            </div>
+
+            <div
+                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-bottom: 3rem;">
+                <div
+                    style="background: var(--bg-card); padding: 2rem; border-radius: var(--radius-lg); border: 2px solid transparent; transition: all 0.3s;">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">مجاني</h3>
+                        <div style="font-size: 3rem; font-weight: 900; margin-bottom: 0.5rem;">0<span
+                                style="font-size: 1.5rem;">ر.س</span></div>
+                        <p style="color: var(--text-secondary);">شهرياً</p>
+                    </div>
+                    <ul style="list-style: none; margin-bottom: 2rem;">
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--primary-color);">✓</span>
+                            <span>محتوى محدود</span>
+                        </li>
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--primary-color);">✓</span>
+                            <span>جودة SD</span>
+                        </li>
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--primary-color);">✓</span>
+                            <span>إعلانات</span>
+                        </li>
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--text-muted);">✗</span>
+                            <span style="color: var(--text-muted);">تحميل للمشاهدة دون اتصال</span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-secondary" style="width: 100%;">الخطة الحالية</button>
+                </div>
+
+                <div
+                    style="background: var(--bg-card); padding: 2rem; border-radius: var(--radius-lg); border: 2px solid var(--primary-color); position: relative; transform: scale(1.05);">
+                    <div
+                        style="position: absolute; top: -15px; right: 50%; transform: translateX(50%); background: var(--gradient-primary); padding: 0.5rem 1.5rem; border-radius: var(--radius-full); font-size: 0.9rem; font-weight: 700;">
+                        الأكثر شعبية</div>
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">أساسي</h3>
+                        <div style="font-size: 3rem; font-weight: 900; margin-bottom: 0.5rem;">29<span
+                                style="font-size: 1.5rem;">ر.س</span></div>
+                        <p style="color: var(--text-secondary);">شهرياً</p>
+                    </div>
+                    <ul style="list-style: none; margin-bottom: 2rem;">
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--primary-color);">✓</span>
+                            <span>محتوى غير محدود</span>
+                        </li>
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--primary-color);">✓</span>
+                            <span>جودة HD</span>
+                        </li>
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--primary-color);">✓</span>
+                            <span>بدون إعلانات</span>
+                        </li>
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--primary-color);">✓</span>
+                            <span>جهاز واحد</span>
+                        </li>
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--text-muted);">✗</span>
+                            <span style="color: var(--text-muted);">تحميل للمشاهدة دون اتصال</span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%;"
+                        onclick="alert('جاري تحويلك لصفحة الدفع...')">ترقية الآن</button>
+                </div>
+
+                <div
+                    style="background: var(--bg-card); padding: 2rem; border-radius: var(--radius-lg); border: 2px solid transparent;">
+                    <div style="text-align: center; margin-bottom: 2rem;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">مميز</h3>
+                        <div style="font-size: 3rem; font-weight: 900; margin-bottom: 0.5rem;">49<span
+                                style="font-size: 1.5rem;">ر.س</span></div>
+                        <p style="color: var(--text-secondary);">شهرياً</p>
+                    </div>
+                    <ul style="list-style: none; margin-bottom: 2rem;">
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--primary-color);">✓</span>
+                            <span>محتوى غير محدود</span>
+                        </li>
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--primary-color);">✓</span>
+                            <span>جودة 4K + HDR</span>
+                        </li>
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--primary-color);">✓</span>
+                            <span>بدون إعلانات</span>
+                        </li>
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--primary-color);">✓</span>
+                            <span>4 أجهزة في نفس الوقت</span>
+                        </li>
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--primary-color);">✓</span>
+                            <span>تحميل للمشاهدة دون اتصال</span>
+                        </li>
+                        <li
+                            style="padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 0.5rem;">
+                            <span style="color: var(--primary-color);">✓</span>
+                            <span>محتوى حصري</span>
+                        </li>
+                    </ul>
+                    <button class="btn btn-primary" style="width: 100%;"
+                        onclick="alert('جاري تحويلك لصفحة الدفع...')">ترقية الآن</button>
+                </div>
+            </div>
+
+            <div
+                style="background: var(--bg-card); padding: 2rem; border-radius: var(--radius-lg); margin-bottom: 3rem;">
+                <h3 style="margin-bottom: 1.5rem;">الأسئلة الشائعة</h3>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    <details
+                        style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--radius-md); cursor: pointer;">
+                        <summary style="font-weight: 600; margin-bottom: 0.5rem;">هل يمكنني إلغاء الاشتراك في أي وقت؟
+                        </summary>
+                        <p style="color: var(--text-secondary); padding-right: 1rem;">نعم، يمكنك إلغاء اشتراكك في أي وقت
+                            دون أي رسوم إضافية.</p>
+                    </details>
+                    <details
+                        style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--radius-md); cursor: pointer;">
+                        <summary style="font-weight: 600; margin-bottom: 0.5rem;">ما هي طرق الدفع المتاحة؟</summary>
+                        <p style="color: var(--text-secondary); padding-right: 1rem;">نقبل جميع بطاقات الائتمان
+                            الرئيسية، Apple Pay، وGoogle Pay.</p>
+                    </details>
+                    <details
+                        style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--radius-md); cursor: pointer;">
+                        <summary style="font-weight: 600; margin-bottom: 0.5rem;">هل يمكنني تغيير خطتي لاحقاً؟</summary>
+                        <p style="color: var(--text-secondary); padding-right: 1rem;">نعم، يمكنك الترقية أو التخفيض في
+                            أي وقت وسيتم تطبيق التغيير في دورة الفوترة التالية.</p>
+                    </details>
+                    <details
+                        style="background: rgba(255,255,255,0.05); padding: 1rem; border-radius: var(--radius-md); cursor: pointer;">
+                        <summary style="font-weight: 600; margin-bottom: 0.5rem;">هل هناك فترة تجريبية مجانية؟</summary>
+                        <p style="color: var(--text-secondary); padding-right: 1rem;">نعم، نقدم فترة تجريبية مجانية لمدة
+                            7 أيام لجميع الخطط المدفوعة.</p>
+                    </details>
+                </div>
+            </div>
+
+            <div
+                style="text-align: center; padding: 2rem; background: var(--bg-card); border-radius: var(--radius-lg);">
+                <h3 style="margin-bottom: 1rem;">هل لديك أسئلة؟</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">تواصل مع فريق الدعم للحصول على المساعدة
+                </p>
+                <button class="btn btn-secondary">اتصل بنا</button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Media<span class="logo-highlight">X</span></h3>
+                    <p class="footer-description">منصتك الترفيهية العربية الشاملة</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MediaX. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

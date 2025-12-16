@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediaX - الإعدادات</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><a href="index.html">
+                        <h1>Media<span class="logo-highlight">X</span></h1>
+                    </a></div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                        <li><a href="movies.html" class="nav-link">أفلام</a></li>
+                        <li><a href="series.html" class="nav-link">مسلسلات</a></li>
+                        <li><a href="games.html" class="nav-link">ألعاب</a></li>
+                        <li><a href="books.html" class="nav-link">كتب</a></li>
+                        <li><a href="categories.html" class="nav-link">التصنيفات</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <div class="user-menu">
+                        <button class="user-avatar"><img src="assets/images/avatar-placeholder.jpg"
+                                alt="المستخدم"></button>
+                        <div class="dropdown-menu">
+                            <a href="profile.html">الملف الشخصي</a>
+                            <a href="watchlist.html">قائمة المشاهدة</a>
+                            <a href="favorites.html">المفضلة</a>
+                            <a href="settings.html">الإعدادات</a>
+                            <a href="subscription.html">الاشتراك</a>
+                            <hr><a href="login.html">تسجيل الخروج</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">الإعدادات</h1>
+            <p class="page-description">إدارة تفضيلات حسابك</p>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 250px 1fr; gap: 2rem;">
+                <div
+                    style="background: var(--bg-card); padding: 1.5rem; border-radius: var(--radius-lg); height: fit-content;">
+                    <nav style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <a href="#account"
+                            style="padding: 0.75rem; border-radius: var(--radius-md); background: var(--primary-color); color: white;">الحساب</a>
+                        <a href="#privacy" style="padding: 0.75rem; border-radius: var(--radius-md);">الخصوصية</a>
+                        <a href="#notifications"
+                            style="padding: 0.75rem; border-radius: var(--radius-md);">الإشعارات</a>
+                        <a href="#playback" style="padding: 0.75rem; border-radius: var(--radius-md);">التشغيل</a>
+                        <a href="#language" style="padding: 0.75rem; border-radius: var(--radius-md);">اللغة</a>
+                    </nav>
+                </div>
+
+                <div style="background: var(--bg-card); padding: 2rem; border-radius: var(--radius-lg);">
+                    <section id="account" style="margin-bottom: 3rem;">
+                        <h3 style="margin-bottom: 1.5rem;">إعدادات الحساب</h3>
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">البريد
+                                    الإلكتروني</label>
+                                <input type="email" value="ahmed@example.com"
+                                    style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-md); color: white; font-family: var(--font-primary);">
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">تغيير كلمة
+                                    المرور</label>
+                                <button class="btn btn-secondary">تغيير كلمة المرور</button>
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">المصادقة
+                                    الثنائية</label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                    <input type="checkbox" style="width: 20px; height: 20px;">
+                                    <span>تفعيل المصادقة الثنائية</span>
+                                </label>
+                            </div>
+                        </div>
+                    </section>
+
+                    <section id="privacy" style="margin-bottom: 3rem;">
+                        <h3 style="margin-bottom: 1.5rem;">الخصوصية والأمان</h3>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" checked style="width: 20px; height: 20px;">
+                                <span>إظهار نشاطي للآخرين</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" checked style="width: 20px; height: 20px;">
+                                <span>السماح بالتوصيات الشخصية</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" style="width: 20px; height: 20px;">
+                                <span>مشاركة البيانات لتحسين الخدمة</span>
+                            </label>
+                        </div>
+                    </section>
+
+                    <section id="notifications" style="margin-bottom: 3rem;">
+                        <h3 style="margin-bottom: 1.5rem;">الإشعارات</h3>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" checked style="width: 20px; height: 20px;">
+                                <span>إشعارات المحتوى الجديد</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" checked style="width: 20px; height: 20px;">
+                                <span>إشعارات التوصيات</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" style="width: 20px; height: 20px;">
+                                <span>إشعارات العروض الخاصة</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" checked style="width: 20px; height: 20px;">
+                                <span>إشعارات البريد الإلكتروني</span>
+                            </label>
+                        </div>
+                    </section>
+
+                    <section id="playback" style="margin-bottom: 3rem;">
+                        <h3 style="margin-bottom: 1.5rem;">إعدادات التشغيل</h3>
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">جودة
+                                    التشغيل</label>
+                                <select
+                                    style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-md); color: white; font-family: var(--font-primary);">
+                                    <option>تلقائي</option>
+                                    <option>4K</option>
+                                    <option>HD</option>
+                                    <option>SD</option>
+                                </select>
+                            </div>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" checked style="width: 20px; height: 20px;">
+                                <span>التشغيل التلقائي للحلقة التالية</span>
+                            </label>
+                            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                <input type="checkbox" checked style="width: 20px; height: 20px;">
+                                <span>تخطي المقدمة تلقائياً</span>
+                            </label>
+                        </div>
+                    </section>
+
+                    <section id="language">
+                        <h3 style="margin-bottom: 1.5rem;">اللغة والمنطقة</h3>
+                        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">لغة
+                                    العرض</label>
+                                <select
+                                    style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-md); color: white; font-family: var(--font-primary);">
+                                    <option>العربية</option>
+                                    <option>English</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600;">المنطقة
+                                    الزمنية</label>
+                                <select
+                                    style="width: 100%; padding: 0.75rem; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: var(--radius-md); color: white; font-family: var(--font-primary);">
+                                    <option>(GMT+3) الرياض</option>
+                                    <option>(GMT+2) القاهرة</option>
+                                    <option>(GMT+4) دبي</option>
+                                </select>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div
+                        style="display: flex; gap: 1rem; margin-top: 2rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.1);">
+                        <button class="btn btn-primary" onclick="alert('تم حفظ الإعدادات بنجاح!')">حفظ
+                            التغييرات</button>
+                        <button class="btn btn-secondary">إلغاء</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Media<span class="logo-highlight">X</span></h3>
+                    <p class="footer-description">منصتك الترفيهية العربية الشاملة</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MediaX. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

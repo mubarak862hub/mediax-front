@@ -1,0 +1,390 @@
+// MediaX - Main JavaScript File
+// ================================
+
+// Global State
+const state = {
+    isSearchOpen: false,
+    currentSlide: 0,
+    isScrolled: false
+};
+
+// DOM Elements
+const elements = {
+    header: document.getElementById('header'),
+    searchBtn: document.getElementById('searchBtn'),
+    searchClose: document.getElementById('searchClose'),
+    searchOverlay: document.getElementById('searchOverlay'),
+    mobileMenuBtn: document.getElementById('mobileMenuBtn'),
+    sliders: document.querySelectorAll('.content-slider')
+};
+
+// Initialize App
+document.addEventListener('DOMContentLoaded', () => {
+    initializeHeader();
+    initializeSearch();
+    initializeSliders();
+    initializeMobileMenu();
+    initializeCards();
+    initializeScrollAnimations();
+});
+
+// Header Scroll Effect
+function initializeHeader() {
+    window.addEventListener('scroll', () => {
+        const scrolled = window.scrollY > 50;
+        
+        if (scrolled !== state.isScrolled) {
+            state.isScrolled = scrolled;
+            elements.header.classList.toggle('scrolled', scrolled);
+        }
+    });
+}
+
+// Search Functionality
+function initializeSearch() {
+    if (elements.searchBtn) {
+        elements.searchBtn.addEventListener('click', openSearch);
+    }
+    
+    if (elements.searchClose) {
+        elements.searchClose.addEventListener('click', closeSearch);
+    }
+    
+    if (elements.searchOverlay) {
+        elements.searchOverlay.addEventListener('click', (e) => {
+            if (e.target === elements.searchOverlay) {
+                closeSearch();
+            }
+        });
+    }
+    
+    // Close search on ESC key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && state.isSearchOpen) {
+            closeSearch();
+        }
+    });
+}
+
+function openSearch() {
+    state.isSearchOpen = true;
+    elements.searchOverlay.classList.add('active');
+    
+    // Focus on search input
+    setTimeout(() => {
+        const searchInput = elements.searchOverlay.querySelector('.search-input');
+        if (searchInput) {
+            searchInput.focus();
+        }
+    }, 300);
+    
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSearch() {
+    state.isSearchOpen = false;
+    elements.searchOverlay.classList.remove('active');
+    
+    // Restore body scroll
+    document.body.style.overflow = '';
+}
+
+// Content Sliders
+function initializeSliders() {
+    elements.sliders.forEach((slider, index) => {
+        const prevBtn = slider.querySelector('.slider-btn-prev');
+        const nextBtn = slider.querySelector('.slider-btn-next');
+        const cardsContainer = slider.querySelector('.content-cards');
+        
+        if (prevBtn && nextBtn && cardsContainer) {
+            prevBtn.addEventListener('click', () => scrollSlider(cardsContainer, 'right'));
+            nextBtn.addEventListener('click', () => scrollSlider(cardsContainer, 'left'));
+            
+            // Touch/Swipe support
+            let startX = 0;
+            let scrollLeft = 0;
+            
+            cardsContainer.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].pageX - cardsContainer.offsetLeft;
+                scrollLeft = cardsContainer.scrollLeft;
+            });
+            
+            cardsContainer.addEventListener('touchmove', (e) => {
+                const x = e.touches[0].pageX - cardsContainer.offsetLeft;
+                const walk = (x - startX) * 2;
+                cardsContainer.scrollLeft = scrollLeft - walk;
+            });
+        }
+    });
+}
+
+function scrollSlider(container, direction) {
+    const scrollAmount = container.offsetWidth * 0.8;
+    const targetScroll = direction === 'left' 
+        ? container.scrollLeft + scrollAmount 
+        : container.scrollLeft - scrollAmount;
+    
+    container.scrollTo({
+        left: targetScroll,
+        behavior: 'smooth'
+    });
+}
+
+// Mobile Menu
+function initializeMobileMenu() {
+    if (elements.mobileMenuBtn) {
+        elements.mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    }
+}
+
+function toggleMobileMenu() {
+    const nav = document.querySelector('.main-nav');
+    if (nav) {
+        nav.classList.toggle('active');
+        elements.mobileMenuBtn.classList.toggle('active');
+    }
+}
+
+// Card Interactions
+function initializeCards() {
+    const cards = document.querySelectorAll('.content-card');
+    
+    cards.forEach(card => {
+        // Play button click
+        const playBtn = card.querySelector('.play-btn');
+        if (playBtn) {
+            playBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                handlePlayClick(card);
+            });
+        }
+        
+        // Add to list button
+        const addBtn = card.querySelector('.action-btn:first-child');
+        if (addBtn) {
+            addBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                handleAddToList(card);
+            });
+        }
+        
+        // Favorite button
+        const favoriteBtn = card.querySelector('.action-btn:last-child');
+        if (favoriteBtn) {
+            favoriteBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                handleFavorite(card);
+            });
+        }
+        
+        // Card click - go to details
+        card.addEventListener('click', () => {
+            handleCardClick(card);
+        });
+    });
+}
+
+function handlePlayClick(card) {
+    const title = card.querySelector('.card-title').textContent;
+    console.log('Playing:', title);
+    // TODO: Navigate to player page or open video modal
+    showNotification('جاري تشغيل المحتوى...', 'success');
+}
+
+function handleAddToList(card) {
+    const title = card.querySelector('.card-title').textContent;
+    console.log('Adding to list:', title);
+    // TODO: Add to user's watchlist
+    showNotification('تمت الإضافة إلى قائمة المشاهدة', 'success');
+    
+    // Visual feedback
+    const btn = card.querySelector('.action-btn:first-child');
+    btn.style.background = 'var(--primary-color)';
+    setTimeout(() => {
+        btn.style.background = '';
+    }, 1000);
+}
+
+function handleFavorite(card) {
+    const title = card.querySelector('.card-title').textContent;
+    const btn = card.querySelector('.action-btn:last-child');
+    const isFavorited = btn.classList.contains('favorited');
+    
+    if (isFavorited) {
+        btn.classList.remove('favorited');
+        console.log('Removed from favorites:', title);
+        showNotification('تمت الإزالة من المفضلة', 'info');
+    } else {
+        btn.classList.add('favorited');
+        console.log('Added to favorites:', title);
+        showNotification('تمت الإضافة إلى المفضلة', 'success');
+        
+        // Visual feedback
+        btn.style.background = 'var(--primary-color)';
+        btn.querySelector('svg').style.fill = 'currentColor';
+    }
+}
+
+function handleCardClick(card) {
+    const title = card.querySelector('.card-title').textContent;
+    console.log('Viewing details for:', title);
+    // TODO: Navigate to details page
+    // window.location.href = `details.html?id=${cardId}`;
+}
+
+// Scroll Animations
+function initializeScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe content rows
+    const rows = document.querySelectorAll('.content-row, .categories-section');
+    rows.forEach((row, index) => {
+        row.style.opacity = '0';
+        row.style.transform = 'translateY(30px)';
+        row.style.transition = `all 0.6s ease-out ${index * 0.1}s`;
+        observer.observe(row);
+    });
+}
+
+// Notification System
+function showNotification(message, type = 'info') {
+    // Remove existing notifications
+    const existing = document.querySelector('.notification');
+    if (existing) {
+        existing.remove();
+    }
+    
+    // Create notification element
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.textContent = message;
+    
+    // Add styles
+    Object.assign(notification.style, {
+        position: 'fixed',
+        top: '100px',
+        left: '50%',
+        transform: 'translateX(-50%)',
+        padding: '1rem 2rem',
+        background: type === 'success' ? 'var(--primary-color)' : 
+                   type === 'error' ? '#dc2626' : 
+                   'var(--secondary-color)',
+        color: 'white',
+        borderRadius: 'var(--radius-lg)',
+        boxShadow: 'var(--shadow-xl)',
+        zIndex: '9999',
+        fontWeight: '600',
+        animation: 'slideDown 0.3s ease-out',
+        fontFamily: 'var(--font-primary)'
+    });
+    
+    // Add to DOM
+    document.body.appendChild(notification);
+    
+    // Remove after 3 seconds
+    setTimeout(() => {
+        notification.style.animation = 'slideUp 0.3s ease-out';
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+
+// Add notification animations
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+    
+    @keyframes slideUp {
+        from {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+        to {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-20px);
+        }
+    }
+`;
+document.head.appendChild(style);
+
+// Utility Functions
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+function throttle(func, limit) {
+    let inThrottle;
+    return function(...args) {
+        if (!inThrottle) {
+            func.apply(this, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+// Lazy Loading Images
+function initializeLazyLoading() {
+    const images = document.querySelectorAll('img[data-src]');
+    
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// Initialize lazy loading when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeLazyLoading);
+} else {
+    initializeLazyLoading();
+}
+
+// Export functions for use in other scripts
+window.MediaX = {
+    showNotification,
+    openSearch,
+    closeSearch,
+    scrollSlider
+};
+
+console.log('MediaX initialized successfully! 🎬');

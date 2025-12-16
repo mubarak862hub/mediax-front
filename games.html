@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="MediaX - ألعاب عربية ممتعة">
+    <title>MediaX - الألعاب</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"><a href="index.html">
+                        <h1>Media<span class="logo-highlight">X</span></h1>
+                    </a></div>
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                        <li><a href="movies.html" class="nav-link">أفلام</a></li>
+                        <li><a href="series.html" class="nav-link">مسلسلات</a></li>
+                        <li><a href="games.html" class="nav-link active">ألعاب</a></li>
+                        <li><a href="books.html" class="nav-link">كتب</a></li>
+                        <li><a href="categories.html" class="nav-link">التصنيفات</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <button class="search-btn" id="searchBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                    </button>
+                    <div class="user-menu">
+                        <button class="user-avatar"><img src="assets/images/avatar-placeholder.jpg"
+                                alt="المستخدم"></button>
+                        <div class="dropdown-menu">
+                            <a href="profile.html">الملف الشخصي</a>
+                            <a href="watchlist.html">قائمة المشاهدة</a>
+                            <a href="favorites.html">المفضلة</a>
+                            <a href="settings.html">الإعدادات</a>
+                            <a href="subscription.html">الاشتراك</a>
+                            <hr><a href="login.html">تسجيل الخروج</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="search-overlay" id="searchOverlay">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="ابحث عن ألعاب...">
+                <button class="search-close" id="searchClose">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">الألعاب</h1>
+            <p class="page-description">استمتع بأفضل الألعاب العربية والعالمية</p>
+        </div>
+    </section>
+
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-wrapper">
+                <div class="filter-group">
+                    <label>النوع:</label>
+                    <select class="filter-select" id="genreFilter">
+                        <option value="all">الكل</option>
+                        <option value="puzzle">ألغاز</option>
+                        <option value="adventure">مغامرات</option>
+                        <option value="strategy">استراتيجية</option>
+                        <option value="racing">سباقات</option>
+                        <option value="sports">رياضة</option>
+                        <option value="educational">تعليمية</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>المنصة:</label>
+                    <select class="filter-select" id="platformFilter">
+                        <option value="all">الكل</option>
+                        <option value="web">متصفح</option>
+                        <option value="mobile">موبايل</option>
+                        <option value="pc">كمبيوتر</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="content-grid" id="gamesGrid">
+                <div class="content-card" data-genre="puzzle" data-platform="web">
+                    <div class="card-image">
+                        <img src="assets/images/placeholder-movie.jpg" alt="لعبة">
+                        <div class="card-overlay">
+                            <button class="play-btn" onclick="alert('جاري تحميل اللعبة...')">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="card-badge">مجاني</span>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">لعبة الألغاز العربية</h4>
+                        <div class="card-meta">
+                            <span class="rating">⭐ 4.8</span>
+                            <span>ألغاز</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card" data-genre="adventure" data-platform="mobile">
+                    <div class="card-image">
+                        <img src="assets/images/placeholder-movie.jpg" alt="لعبة">
+                        <div class="card-overlay">
+                            <button class="play-btn" onclick="alert('جاري تحميل اللعبة...')">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="card-badge new">جديد</span>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">مغامرات سندباد</h4>
+                        <div class="card-meta">
+                            <span class="rating">⭐ 4.9</span>
+                            <span>مغامرات</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card" data-genre="strategy" data-platform="pc">
+                    <div class="card-image">
+                        <img src="assets/images/placeholder-movie.jpg" alt="لعبة">
+                        <div class="card-overlay">
+                            <button class="play-btn" onclick="alert('جاري تحميل اللعبة...')">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="card-badge">مدفوع</span>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">حروب الممالك</h4>
+                        <div class="card-meta">
+                            <span class="rating">⭐ 5.0</span>
+                            <span>استراتيجية</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card" data-genre="racing" data-platform="mobile">
+                    <div class="card-image">
+                        <img src="assets/images/placeholder-movie.jpg" alt="لعبة">
+                        <div class="card-overlay">
+                            <button class="play-btn" onclick="alert('جاري تحميل اللعبة...')">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="card-badge">مجاني</span>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">سباق الصحراء</h4>
+                        <div class="card-meta">
+                            <span class="rating">⭐ 4.7</span>
+                            <span>سباقات</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card" data-genre="sports" data-platform="web">
+                    <div class="card-image">
+                        <img src="assets/images/placeholder-movie.jpg" alt="لعبة">
+                        <div class="card-overlay">
+                            <button class="play-btn" onclick="alert('جاري تحميل اللعبة...')">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="card-badge">مجاني</span>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">كرة القدم العربية</h4>
+                        <div class="card-meta">
+                            <span class="rating">⭐ 4.6</span>
+                            <span>رياضة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="content-card" data-genre="educational" data-platform="web">
+                    <div class="card-image">
+                        <img src="assets/images/placeholder-movie.jpg" alt="لعبة">
+                        <div class="card-overlay">
+                            <button class="play-btn" onclick="alert('جاري تحميل اللعبة...')">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" />
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="card-badge">مجاني</span>
+                    </div>
+                    <div class="card-info">
+                        <h4 class="card-title">تعلم العربية</h4>
+                        <div class="card-meta">
+                            <span class="rating">⭐ 4.9</span>
+                            <span>تعليمية</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Media<span class="logo-highlight">X</span></h3>
+                    <p class="footer-description">منصتك الترفيهية العربية الشاملة</p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-heading">الحساب</h4>
+                    <ul class="footer-links">
+                        <li><a href="profile.html">حسابي</a></li>
+                        <li><a href="subscription.html">الاشتراكات</a></li>
+                        <li><a href="watchlist.html">قائمة المشاهدة</a></li>
+                        <li><a href="settings.html">الإعدادات</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MediaX. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/movies.js"></script>
+</body>
+
+</html>

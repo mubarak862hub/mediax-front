@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="تفاصيل المحتوى - MediaX">
+    <title>رحلة الأمل - MediaX</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/details.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header (same as index.html) -->
+    <header class="header scrolled" id="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html">
+                        <h1>Media<span class="logo-highlight">X</span></h1>
+                    </a>
+                </div>
+
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                        <li><a href="movies.html" class="nav-link">أفلام</a></li>
+                        <li><a href="series.html" class="nav-link active">مسلسلات</a></li>
+                        <li><a href="games.html" class="nav-link">ألعاب</a></li>
+                        <li><a href="books.html" class="nav-link">كتب</a></li>
+                        <li><a href="categories.html" class="nav-link">التصنيفات</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="search-btn" id="searchBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                    </button>
+                    <button class="notifications-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" />
+                        </svg>
+                        <span class="notification-badge">3</span>
+                    </button>
+                    <div class="user-menu">
+                        <button class="user-avatar">
+                            <img src="assets/images/avatar-placeholder.jpg" alt="المستخدم">
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="profile.html">الملف الشخصي</a>
+                            <a href="watchlist.html">قائمة المشاهدة</a>
+                            <a href="favorites.html">المفضلة</a>
+                            <a href="settings.html">الإعدادات</a>
+                            <a href="subscription.html">الاشتراك</a>
+                            <hr>
+                            <a href="login.html">تسجيل الخروج</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Details Hero -->
+    <section class="details-hero">
+        <div class="details-background">
+            <div class="details-gradient"></div>
+        </div>
+        <div class="container">
+            <div class="details-content">
+                <div class="breadcrumb">
+                    <a href="index.html">الرئيسية</a>
+                    <span>/</span>
+                    <a href="series.html">مسلسلات</a>
+                    <span>/</span>
+                    <span>رحلة الأمل</span>
+                </div>
+
+                <div class="details-header">
+                    <div class="details-info">
+                        <h1 class="details-title">رحلة الأمل</h1>
+                        <div class="details-meta">
+                            <span class="rating-large">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                4.8/5
+                            </span>
+                            <span class="year">2024</span>
+                            <span class="episodes">30 حلقة</span>
+                            <span class="duration">45 دقيقة</span>
+                            <span class="age-rating">+13</span>
+                            <span class="quality-badge">4K</span>
+                        </div>
+
+                        <p class="details-description">
+                            قصة ملهمة عن عائلة عربية تواجه التحديات بالصبر والإيمان. مسلسل درامي اجتماعي يجمع بين
+                            الواقعية والإنسانية في أروع صورها. يتناول المسلسل قضايا اجتماعية مهمة مثل الترابط الأسري،
+                            التحديات الاقتصادية، والأمل في مواجهة الصعاب.
+                        </p>
+
+                        <div class="details-tags">
+                            <span class="tag">دراما</span>
+                            <span class="tag">اجتماعي</span>
+                            <span class="tag">عائلي</span>
+                            <span class="tag">إنساني</span>
+                        </div>
+
+                        <div class="details-actions">
+                            <button class="btn btn-primary btn-large">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                شاهد الآن
+                            </button>
+                            <button class="btn btn-secondary btn-large">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                                </svg>
+                                أضف للقائمة
+                            </button>
+                            <button class="btn btn-icon btn-large">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                                </svg>
+                            </button>
+                            <button class="btn btn-icon btn-large">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M7.217 10.907a2.25 2.25 0 100 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186l9.566-5.314m-9.566 7.5l9.566 5.314m0 0a2.25 2.25 0 103.935 2.186 2.25 2.25 0 00-3.935-2.186zm0-12.814a2.25 2.25 0 103.933-2.185 2.25 2.25 0 00-3.933 2.185z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="details-poster">
+                        <img src="assets/images/placeholder-movie.jpg" alt="رحلة الأمل">
+                        <div class="poster-overlay">
+                            <button class="trailer-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                <span>شاهد الإعلان</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="details-main">
+        <div class="container">
+            <!-- Episodes Section -->
+            <section class="episodes-section">
+                <h2 class="section-title">الحلقات</h2>
+                <div class="season-selector">
+                    <button class="season-btn active" data-season="1">الموسم الأول</button>
+                    <button class="season-btn" data-season="2">الموسم الثاني</button>
+                </div>
+
+                <div class="episodes-grid">
+                    <div class="episode-card">
+                        <div class="episode-thumbnail">
+                            <img src="assets/images/placeholder-movie.jpg" alt="الحلقة 1">
+                            <div class="episode-overlay">
+                                <button class="play-btn-small">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <span class="episode-duration">45:30</span>
+                        </div>
+                        <div class="episode-info">
+                            <h4 class="episode-title">الحلقة 1 - البداية</h4>
+                            <p class="episode-description">تبدأ القصة مع عائلة تواجه تحديات جديدة في حياتها...</p>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <div class="episode-thumbnail">
+                            <img src="assets/images/placeholder-movie.jpg" alt="الحلقة 2">
+                            <div class="episode-overlay">
+                                <button class="play-btn-small">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <span class="episode-duration">42:15</span>
+                        </div>
+                        <div class="episode-info">
+                            <h4 class="episode-title">الحلقة 2 - التحدي</h4>
+                            <p class="episode-description">تزداد الأمور تعقيداً مع ظهور تحديات جديدة...</p>
+                        </div>
+                    </div>
+
+                    <div class="episode-card">
+                        <div class="episode-thumbnail">
+                            <img src="assets/images/placeholder-movie.jpg" alt="الحلقة 3">
+                            <div class="episode-overlay">
+                                <button class="play-btn-small">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                        <path fill-rule="evenodd"
+                                            d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <span class="episode-duration">44:20</span>
+                        </div>
+                        <div class="episode-info">
+                            <h4 class="episode-title">الحلقة 3 - الأمل</h4>
+                            <p class="episode-description">تجد العائلة بصيص أمل في وسط الظلام...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Cast & Crew -->
+            <section class="cast-section">
+                <h2 class="section-title">طاقم العمل</h2>
+                <div class="cast-grid">
+                    <div class="cast-card">
+                        <div class="cast-image">
+                            <img src="assets/images/avatar-placeholder.jpg" alt="ممثل">
+                        </div>
+                        <h4 class="cast-name">أحمد السعيد</h4>
+                        <p class="cast-role">البطولة</p>
+                    </div>
+                    <div class="cast-card">
+                        <div class="cast-image">
+                            <img src="assets/images/avatar-placeholder.jpg" alt="ممثلة">
+                        </div>
+                        <h4 class="cast-name">فاطمة محمد</h4>
+                        <p class="cast-role">البطولة</p>
+                    </div>
+                    <div class="cast-card">
+                        <div class="cast-image">
+                            <img src="assets/images/avatar-placeholder.jpg" alt="مخرج">
+                        </div>
+                        <h4 class="cast-name">خالد عبدالله</h4>
+                        <p class="cast-role">الإخراج</p>
+                    </div>
+                    <div class="cast-card">
+                        <div class="cast-image">
+                            <img src="assets/images/avatar-placeholder.jpg" alt="كاتب">
+                        </div>
+                        <h4 class="cast-name">سارة أحمد</h4>
+                        <p class="cast-role">الكتابة</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reviews Section -->
+            <section class="reviews-section">
+                <div class="reviews-header">
+                    <h2 class="section-title">التقييمات والمراجعات</h2>
+                    <button class="btn btn-secondary">اكتب مراجعة</button>
+                </div>
+
+                <div class="rating-summary">
+                    <div class="rating-score">
+                        <h3>4.8</h3>
+                        <div class="stars">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path fill-rule="evenodd"
+                                    d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                        <p>من 1,234 تقييم</p>
+                    </div>
+                    <div class="rating-bars">
+                        <div class="rating-bar-item">
+                            <span>5 نجوم</span>
+                            <div class="rating-bar">
+                                <div class="rating-fill" style="width: 75%"></div>
+                            </div>
+                            <span>75%</span>
+                        </div>
+                        <div class="rating-bar-item">
+                            <span>4 نجوم</span>
+                            <div class="rating-bar">
+                                <div class="rating-fill" style="width: 15%"></div>
+                            </div>
+                            <span>15%</span>
+                        </div>
+                        <div class="rating-bar-item">
+                            <span>3 نجوم</span>
+                            <div class="rating-bar">
+                                <div class="rating-fill" style="width: 7%"></div>
+                            </div>
+                            <span>7%</span>
+                        </div>
+                        <div class="rating-bar-item">
+                            <span>2 نجوم</span>
+                            <div class="rating-bar">
+                                <div class="rating-fill" style="width: 2%"></div>
+                            </div>
+                            <span>2%</span>
+                        </div>
+                        <div class="rating-bar-item">
+                            <span>1 نجمة</span>
+                            <div class="rating-bar">
+                                <div class="rating-fill" style="width: 1%"></div>
+                            </div>
+                            <span>1%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reviews-list">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <img src="assets/images/avatar-placeholder.jpg" alt="مستخدم">
+                                <div>
+                                    <h4>محمد أحمد</h4>
+                                    <p>منذ أسبوع</p>
+                                </div>
+                            </div>
+                            <div class="review-rating">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                    <path fill-rule="evenodd"
+                                        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                                5.0
+                            </div>
+                        </div>
+                        <p class="review-text">
+                            مسلسل رائع جداً! القصة مؤثرة والأداء التمثيلي ممتاز. أنصح الجميع بمشاهدته.
+                        </p>
+                        <div class="review-actions">
+                            <button class="review-action-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M6.633 10.5c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 012.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 01.75-.75A2.25 2.25 0 0116.5 4.5c0 1.152-.26 2.243-.723 3.218-.266.558.107 1.282.725 1.282h3.126c1.026 0 1.945.694 2.054 1.715.045.422.068.85.068 1.285a11.95 11.95 0 01-2.649 7.521c-.388.482-.987.729-1.605.729H13.48c-.483 0-.964-.078-1.423-.23l-3.114-1.04a4.501 4.501 0 00-1.423-.23H5.904M14.25 9h2.25M5.904 18.75c.083.205.173.405.27.602.197.4-.078.898-.523.898h-.908c-.889 0-1.713-.518-1.972-1.368a12 12 0 01-.521-3.507c0-1.553.295-3.036.831-4.398C3.387 10.203 4.167 9.75 5 9.75h1.053c.472 0 .745.556.5.96a8.958 8.958 0 00-1.302 4.665c0 1.194.232 2.333.654 3.375z" />
+                                </svg>
+                                مفيد (24)
+                            </button>
+                            <button class="review-action-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                        d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+                                </svg>
+                                رد
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Similar Content -->
+            <section class="content-row">
+                <div class="row-header">
+                    <h3 class="row-title">محتوى مشابه</h3>
+                    <a href="#" class="view-all">عرض الكل</a>
+                </div>
+                <div class="content-slider">
+                    <div class="content-cards">
+                        <!-- Similar content cards (reuse from index.html) -->
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer (same as index.html) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">Media<span class="logo-highlight">X</span></h3>
+                    <p class="footer-description">منصتك الترفيهية العربية الشاملة</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MediaX. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/details.js"></script>
+</body>
+
+</html>
