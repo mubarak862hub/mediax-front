@@ -138,21 +138,37 @@ document.addEventListener('DOMContentLoaded', function() {
         qualityFilter.addEventListener('change', filterMovies);
     }
 
-    // Add to watchlist functionality
+    // Helper to resolve a content id from a card
+    function getContentIdFromCard(card) {
+        if (!card) return null;
+        return card.dataset.id || card.dataset.contentId || card.dataset.slug || card.querySelector('.card-title')?.textContent.trim();
+    }
+
+    // Add to watchlist functionality (uses `js/api.js` MediaApi)
     document.querySelectorAll('.action-btn').forEach(btn => {
-        btn.addEventListener('click', function(e) {
+        btn.addEventListener('click', async function(e) {
             e.stopPropagation();
-            
-            const svg = this.querySelector('svg');
-            const path = svg.querySelector('path');
-            
-            // Toggle fill
-            if (svg.getAttribute('fill') === 'currentColor') {
-                svg.setAttribute('fill', 'none');
-                showNotification('تمت الإزالة من القائمة');
-            } else {
-                svg.setAttribute('fill', 'currentColor');
-                showNotification('تمت الإضافة إلى القائمة');
+
+            const card = this.closest('.content-card');
+            const contentId = getContentIdFromCard(card);
+            if (!contentId) {
+                showNotification('حدث خطأ: معرّف المحتوى غير موجود', 'error');
+                return;
+            }
+
+            try {
+                const added = await window.MediaApi.toggleWatchlist(contentId);
+                const svg = this.querySelector('svg');
+                if (added) {
+                    svg.setAttribute('fill', 'currentColor');
+                    showNotification('تمت الإضافة إلى القائمة', 'success');
+                } else {
+                    svg.setAttribute('fill', 'none');
+                    showNotification('تمت الإزالة من القائمة', 'info');
+                }
+            } catch (err) {
+                console.error('Watchlist toggle error', err);
+                showNotification('حدث خطأ أثناء تحديث القائمة', 'error');
             }
         });
     });
