@@ -451,8 +451,10 @@ console.log('MediaX initialized successfully! 🎬');
         const sample = await fetchSample();
         if (!sample || !sample.length) return;
 
-        const containers = document.querySelectorAll('.content-cards');
-        containers.forEach(container => {
+        const cardContainers = Array.from(document.querySelectorAll('.content-cards'))
+            .concat(Array.from(document.querySelectorAll('.content-grid')));
+
+        cardContainers.forEach(container => {
             // If container already has many items, skip
             if (container.querySelectorAll('.content-card').length >= 8) return;
 
