@@ -1274,6 +1274,25 @@ a:hover {
         border: none;
     }
 
+    /* Close button inside full-screen mobile nav */
+    .main-nav .mainnav-close {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background: transparent;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.8rem;
+        line-height: 1;
+        padding: 0.25rem 0.5rem;
+        cursor: pointer;
+        z-index: calc(var(--z-modal) + 30);
+    }
+
+    .main-nav .mainnav-close:focus {
+        outline: none;
+    }
+
     .main-nav .nav-list {
         flex-direction: column;
         gap: 0.5rem;

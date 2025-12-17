@@ -268,6 +268,20 @@ function initializeMobileMenu() {
             const btnNow = document.getElementById('mobileMenuBtn') || btn || elements.mobileMenuBtn;
             if (btnNow) btnNow.classList.remove('active');
         });
+
+        // Ensure there is a visible close button inside the main-nav for mobile
+        let mainClose = nav.querySelector('.mainnav-close');
+        if (!mainClose) {
+            mainClose = document.createElement('button');
+            mainClose.className = 'mainnav-close';
+            mainClose.setAttribute('aria-label', 'إغلاق القائمة');
+            mainClose.innerHTML = '&times;';
+            nav.insertBefore(mainClose, nav.firstChild);
+        }
+        mainClose.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeMainNav();
+        });
     }
 
     // Close sidebar when clicking inside sidebar nav links
