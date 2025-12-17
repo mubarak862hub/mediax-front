@@ -29,6 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeScrollAnimations();
 });
 
+// Expose init helpers for MVC controller compatibility
+window.initializeLazyLoading = initializeLazyLoading;
+window.initializeCards = initializeCards;
+
 // Assign deterministic data-id attributes to static cards missing them
 function normalizeContentIds() {
     const cards = document.querySelectorAll('.content-card');
@@ -513,99 +517,20 @@ window.MediaX = {
 
 console.log('MediaX initialized successfully! 🎬');
 
-// --- Seed demo content from `data/sample_contents.json` if present ---
-(function seedDemoContent() {
-    async function fetchSample() {
-        try {
-            const res = await fetch('data/sample_contents.json');
-            if (!res.ok) return null;
-            return await res.json();
-        } catch (e) {
-            return null;
-        }
-    }
-
-    function makeCard(item) {
-        const card = document.createElement('div');
-        card.className = 'content-card';
-        card.dataset.id = item.id;
-        card.dataset.genre = item.genre || '';
-        card.dataset.year = item.year || '';
-        card.dataset.quality = item.quality || '';
-
-        const imgUrl = `https://picsum.photos/seed/${encodeURIComponent(item.imageSeed || item.id)}/300/450`;
-
-        card.innerHTML = `
-            <div class="card-image">
-                <img data-src="${imgUrl}" alt="${item.title}">
-                <div class="card-overlay">
-                    <button class="play-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
-                            <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
-                        </svg>
-                    </button>
-                    <div class="card-actions">
-                        <button class="action-btn" title="أضف للقائمة">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-                            </svg>
-                        </button>
-                        <button class="action-btn" title="المفضلة">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-                <span class="card-badge">${item.quality || ''}</span>
-            </div>
-            <div class="card-info">
-                <h4 class="card-title">${item.title}</h4>
-                <div class="card-meta">
-                    <span class="rating">${item.rating}</span>
-                    <span class="year">${item.year}</span>
-                </div>
-            </div>
-        `;
-
-        return card;
-    }
-
-    async function seed() {
-        const sample = await fetchSample();
-        if (!sample || !sample.length) return;
-
-        const cardContainers = Array.from(document.querySelectorAll('.content-cards'))
-            .concat(Array.from(document.querySelectorAll('.content-grid')));
-
-        cardContainers.forEach(container => {
-            // If container already has many items, skip
-            if (container.querySelectorAll('.content-card').length >= 8) return;
-
-            // Add up to 12 demo cards
-            for (let i = 0; i < Math.min(12, sample.length); i++) {
-                const item = sample[i % sample.length];
-                const card = makeCard(item);
-                container.appendChild(card);
-            }
-        });
-
-        // After adding cards, initialize lazy loading and card behaviors
-        initializeLazyLoading();
-        initializeCards();
-
-        // Update watchlist count if present
-        const watchlistCountEl = document.getElementById('watchlistCount');
-        if (watchlistCountEl) {
-            const grid = document.querySelector('.content-grid');
-            const count = grid ? grid.querySelectorAll('.content-card').length : 0;
-            watchlistCountEl.textContent = `لديك ${count} عناصر في القائمة`;
-        }
+// MVC bootstrap: load `js/mvc/app.js` which seeds content and wires controllers
+(function loadMvcBootstrap() {
+    function appendMvcScript() {
+        const existing = document.querySelector('script[data-mvc]');
+        if (existing) return;
+        const s = document.createElement('script');
+        s.src = 'js/mvc/app.js';
+        s.setAttribute('data-mvc', '1');
+        document.body.appendChild(s);
     }
 
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', seed);
+        document.addEventListener('DOMContentLoaded', appendMvcScript);
     } else {
-        seed();
+        appendMvcScript();
     }
 })();

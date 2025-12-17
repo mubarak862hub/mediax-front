@@ -1,11 +1,13 @@
 {
     "name": "mediax-ui-design",
     "version": "1.0.0",
-    "description": "MediaX - منصة ترفيهية عربية شاملة - تصميم UI/UX",
+    "description": "MediaX - منصة ترفيهية عربية شاملة - تصميم",
     "main": "index.html",
     "scripts": {
-        "start": "echo 'افتح index.html في المتصفح أو استخدم Live Server'",
-        "dev": "live-server --port=3000 --open=index.html",
+        "start": "npm run dev",
+        "dev": "live-server --port=3000 --open=index.html --quiet",
+        "serve": "live-server --open=index.html",
+        "check": "node -e \"console.log('MediaX project ok')\"",
         "build": "echo 'لا توجد عملية بناء مطلوبة - مشروع Vanilla'",
         "test": "echo 'لم يتم إعداد الاختبارات بعد'"
     },

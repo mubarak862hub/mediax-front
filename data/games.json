@@ -1,0 +1,20 @@
+[
+    {
+        "id": "g1",
+        "title": "سباق الزمن - اللعبة",
+        "year": "2023",
+        "rating": "4.3",
+        "genre": "سباق",
+        "platform": "ويب",
+        "imageSeed": "time-race"
+    },
+    {
+        "id": "g2",
+        "title": "أبطال الحي - التحدي",
+        "year": "2022",
+        "rating": "4.1",
+        "genre": "مغامرة",
+        "platform": "متصفح",
+        "imageSeed": "neighborhood-heroes"
+    }
+]
