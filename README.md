@@ -29,3 +29,4 @@ npm run dev
 - لإضافة عناصر تجريبية، حرّر `data/sample_contents.json`.
 - السكربت `js/main.js` سيقوم تلقائياً بحقن البطاقات في الحاويات `.content-cards` و `.content-grid`.
 - المفضلة/قائمة المشاهدة مُحاكيتان بواسطة `js/api.js` الذي يستخدم `localStorage`.
+.
