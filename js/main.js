@@ -244,28 +244,143 @@ function initializeMobileMenu() {
     // Query the button at init time to ensure it exists (avoid early-top-level queries)
     const btn = document.getElementById('mobileMenuBtn');
     if (btn) {
-        btn.addEventListener('click', toggleMobileMenu);
+        btn.addEventListener('click', (e) => {
+            // If this page has a settings/profile sidebar, toggle off-canvas sidebar
+            const sidebar = document.querySelector('.page-grid .sidebar');
+            if (sidebar && window.innerWidth <= 768) {
+                e.stopPropagation();
+                toggleSidebar();
+                return;
+            }
+
+            // Fallback: toggle main navigation (existing behavior)
+            toggleMobileMenu();
+        });
     }
+
     // Close mobile menu when a nav link is clicked (auto-close behavior)
     const nav = document.querySelector('.main-nav');
     if (nav) {
         nav.addEventListener('click', (e) => {
             const link = e.target.closest('a');
             if (!link) return;
-            // Only act for internal nav links (ignore dropdown anchors that may not navigate)
-            // Close the mobile menu UI
             nav.classList.remove('active');
             const btnNow = document.getElementById('mobileMenuBtn') || btn || elements.mobileMenuBtn;
             if (btnNow) btnNow.classList.remove('active');
         });
+    }
+
+    // Close sidebar when clicking inside sidebar nav links
+    const pageSidebar = document.querySelector('.page-grid .sidebar');
+    if (pageSidebar) {
+        pageSidebar.addEventListener('click', (e) => {
+            const link = e.target.closest('a');
+            if (link && window.innerWidth <= 768) {
+                // preserve anchor behavior, then close
+                setTimeout(() => closeSidebar(), 120);
+            }
+        });
+    }
+
+    // Wire the explicit sidebar close button if present
+    const sidebarCloseBtn = document.getElementById('sidebarCloseBtn');
+    if (sidebarCloseBtn) {
+        sidebarCloseBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            closeSidebar();
+        });
+    }
+
+    // Ensure sidebar closes on resize to desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            closeSidebar();
+        }
+    });
+}
+
+// Off-canvas sidebar helpers
+function ensureBackdrop() {
+    let b = document.querySelector('.offcanvas-backdrop');
+    if (!b) {
+        b = document.createElement('div');
+        b.className = 'offcanvas-backdrop';
+        document.body.appendChild(b);
+        b.addEventListener('click', () => {
+            // close any open offcanvas UI (sidebar or main nav)
+            closeSidebar();
+            closeMainNav();
+        });
+    }
+    return b;
+}
+
+function openSidebar() {
+    const sidebar = document.querySelector('.page-grid .sidebar');
+    if (!sidebar) return;
+    sidebar.classList.add('offcanvas', 'open');
+    const backdrop = ensureBackdrop();
+    requestAnimationFrame(() => backdrop.classList.add('show'));
+    document.body.style.overflow = 'hidden';
+}
+
+function closeSidebar() {
+    const sidebar = document.querySelector('.page-grid .sidebar');
+    if (!sidebar) return;
+    sidebar.classList.remove('open');
+    const backdrop = document.querySelector('.offcanvas-backdrop');
+    if (backdrop) backdrop.classList.remove('show');
+    document.body.style.overflow = '';
+    // remove offcanvas class after animation to restore desktop styles
+    setTimeout(() => {
+        if (sidebar) sidebar.classList.remove('offcanvas');
+        if (backdrop && !backdrop.classList.contains('show')) backdrop.remove();
+    }, 350);
+}
+
+function toggleSidebar() {
+    const sidebar = document.querySelector('.page-grid .sidebar');
+    if (!sidebar) return;
+    if (sidebar.classList.contains('open')) {
+        closeSidebar();
+    } else {
+        // ensure sidebar has offcanvas class
+        sidebar.classList.add('offcanvas');
+        openSidebar();
     }
 }
 
 function toggleMobileMenu() {
     const nav = document.querySelector('.main-nav');
     const btn = document.getElementById('mobileMenuBtn') || elements.mobileMenuBtn;
-    if (nav) nav.classList.toggle('active');
-    if (btn) btn.classList.toggle('active');
+    if (!nav) return;
+
+    const isActive = nav.classList.toggle('active');
+    if (btn) btn.classList.toggle('active', isActive);
+
+    // Manage backdrop and body scrolling when main nav is active (full-screen)
+    if (isActive) {
+        const backdrop = ensureBackdrop();
+        requestAnimationFrame(() => backdrop.classList.add('show'));
+        document.body.style.overflow = 'hidden';
+    } else {
+        const backdrop = document.querySelector('.offcanvas-backdrop');
+        if (backdrop) backdrop.classList.remove('show');
+        document.body.style.overflow = '';
+        // remove backdrop after fade
+        setTimeout(() => {
+            const b = document.querySelector('.offcanvas-backdrop');
+            if (b && !b.classList.contains('show')) b.remove();
+        }, 300);
+    }
+}
+
+function closeMainNav() {
+    const nav = document.querySelector('.main-nav');
+    const btn = document.getElementById('mobileMenuBtn') || elements.mobileMenuBtn;
+    if (nav && nav.classList.contains('active')) nav.classList.remove('active');
+    if (btn) btn.classList.remove('active');
+    document.body.style.overflow = '';
 }
 
 // Card Interactions

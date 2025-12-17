@@ -1258,18 +1258,20 @@ a:hover {
     .main-nav.active {
         display: block;
         position: fixed;
-        top: 70px;
+        top: 0;
+        left: 0;
         right: 0;
         bottom: 0;
-        width: 280px;
+        width: 100vw;
+        height: 100vh;
         background: var(--bg-secondary);
-        padding: 1rem;
-        z-index: calc(var(--z-modal) + 10);
-        box-shadow: -20px 0 40px rgba(0, 0, 0, 0.6);
+        padding: 1.25rem 1rem;
+        z-index: calc(var(--z-modal) + 20);
+        box-shadow: none;
         overflow-y: auto;
         transform: translateX(0);
-        animation: slideInRight 240ms ease-out;
-        border-left: 1px solid rgba(255, 255, 255, 0.03);
+        animation: none;
+        border: none;
     }
 
     .main-nav .nav-list {
