@@ -6,7 +6,95 @@ document.addEventListener('DOMContentLoaded', () => {
     initializeEpisodeCards();
     initializeTrailerButton();
     initializeReviewActions();
+    loadContentFromQuery();
 });
+
+async function loadContentFromQuery() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    if (!id) return;
+
+    // try to load sample data
+    let sample = [];
+    try {
+        const res = await fetch('data/sample_contents.json');
+        sample = await res.json();
+    } catch (e) {
+        console.warn('No sample data available', e);
+    }
+
+    const item = sample.find(s => s.id === id);
+    if (!item) return;
+
+    // Populate title, poster, meta
+    const titleEl = document.querySelector('.details-title') || document.querySelector('#detailsTitle');
+    if (titleEl) {
+        titleEl.textContent = item.title;
+        titleEl.dataset.id = item.id;
+    }
+
+    const poster = document.querySelector('.details-poster img') || document.querySelector('#detailsPoster');
+    if (poster) {
+        const src = `https://picsum.photos/seed/${encodeURIComponent(item.imageSeed || item.id)}/600/900`;
+        if (poster.tagName.toLowerCase() === 'img') poster.src = src; else poster.style.backgroundImage = `url(${src})`;
+    }
+
+    const desc = document.querySelector('.details-description');
+    if (desc) desc.textContent = item.description || `وصف تجريبي لـ ${item.title}`;
+
+    // Similar content
+    const similarGrid = document.querySelector('.similar-grid');
+    if (similarGrid && sample && sample.length) {
+        similarGrid.innerHTML = '';
+        sample.slice(0, 6).forEach(s => {
+            if (s.id === item.id) return;
+            const card = document.createElement('div');
+            card.className = 'content-card';
+            card.dataset.id = s.id;
+            card.innerHTML = `
+                <div class="card-image">
+                    <img data-src="https://picsum.photos/seed/${encodeURIComponent(s.imageSeed || s.id)}/300/450" alt="${s.title}">
+                    <div class="card-overlay"><button class="play-btn"></button></div>
+                </div>
+                <div class="card-info"><h4 class="card-title">${s.title}</h4></div>
+            `;
+            similarGrid.appendChild(card);
+        });
+        initializeLazyLoading();
+        initializeCards();
+    }
+
+    // Episodes (if series)
+    const episodesGrid = document.querySelector('.episodes-grid');
+    if (episodesGrid) {
+        episodesGrid.innerHTML = '';
+        const epCount = item.episodes || 8;
+        for (let i = 1; i <= epCount; i++) {
+            const ep = document.createElement('div');
+            ep.className = 'episode-card';
+            ep.innerHTML = `
+                <div class="episode-thumb"><img data-src="https://picsum.photos/seed/${encodeURIComponent(item.id + '-ep' + i)}/400/225" alt="حلقة ${i}"></div>
+                <div class="episode-info"><h5 class="episode-title">${item.title} - حلقة ${i}</h5><p class="episode-meta">${fmtMinutes(25 + i)} • ${new Date().getFullYear()}</p></div>
+                <div class="episode-actions"><button class="play-btn-small">تشغيل</button></div>
+            `;
+            episodesGrid.appendChild(ep);
+        }
+        initializeLazyLoading();
+        initializeEpisodeCards();
+    }
+
+    // Wire watch now button to player
+    const watchNowBtn = document.querySelector('.details-actions .btn-primary');
+    if (watchNowBtn) {
+        watchNowBtn.addEventListener('click', () => {
+            window.location.href = `player.html?content=${encodeURIComponent(item.id)}`;
+        });
+    }
+}
+
+function fmtMinutes(m) {
+    return (Math.floor(m) + ' دقيقة');
+}
 
 // Season Selector
 function initializeSeasonSelector() {
