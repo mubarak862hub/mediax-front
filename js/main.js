@@ -272,7 +272,8 @@ function initializeMobileMenu() {
         // Ensure there is a visible close button inside the main-nav for mobile
         let mainClose = nav.querySelector('.mainnav-close');
         if (!mainClose) {
-            mainClose = document.createElement('button');
+            
+            // mainClose = document.createElement('button');
             mainClose.className = 'mainnav-close';
             mainClose.setAttribute('aria-label', 'إغلاق القائمة');
             mainClose.innerHTML = '&times;';
